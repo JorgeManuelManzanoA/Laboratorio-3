@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="Lab03.css" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa de cambio</title>
+    <script>
+         function cambio(){
+            let moneda1 = document.querySelector('input[name="moneda1"]:checked').value;
+            let moneda2 = document.querySelector('input[name="moneda2"]:checked').value;
+            let valor = Number(document.getElementById("dinero").value);
+            let cambio = 0
+
+            if (moneda1 === "dolares"){
+                if (moneda2 === "dolares"){
+                    cambio = valor * 1
+                }
+                else if (moneda2 === "soles"){
+                    cambio = valor * 3.74
+                }
+                else if (moneda2 === "euros"){
+                    cambio = valor * 0.91
+                }
+                
+            }
+
+            else if (moneda1 === "soles"){
+                if (moneda2 === "dolares"){
+                    cambio = valor * 0.27
+                }
+                else if (moneda2 === "soles"){
+                    cambio = valor * 1
+                }
+                else if (moneda2 === "euros"){
+                    cambio = valor * 0.24
+                }
+            }
+
+            else if (moneda1 === "euros"){
+                if (moneda2 === "dolares"){
+                    cambio = valor * 1.10
+                }
+                else if (moneda2 === "soles"){
+                    cambio = valor * 4.11
+                }
+                else if (moneda2 === "euros"){
+                    cambio = valor * 1
+                }
+            }
+
+            alert(`Su cambio son: ${cambio.toFixed(2)} ${moneda2}`)
+        }
+    </script>
+</head>
+<body>
+    <div id="casacambio">
+        <h2>CASA DE CAMBIO</h2>
+        <h3>Selecciona su tipo de moneda:</h3>
+        <input type="radio" name="moneda1" value="dolares" id="dolares1">
+        <label for="dolares1"><span class="radio-button"></span>Dolares</label>
+        <input type="radio" name="moneda1" value="soles" id="soles1">
+        <label for="soles1"><span class="radio-button"></span>Soles</label>
+        <input type="radio" name="moneda1" value="euros" id="euros1">
+        <label for="euros1"><span class="radio-button"></span>Euros</label>
+        <h3>Selecciona el tipo de cambio</h3>
+        <input type="radio" name="moneda2" value="dolares" id="dolares2">
+        <label for="dolares2"><span class="radio-button"></span>Dolares</label>
+        <input type="radio" name="moneda2" value="soles" id="soles2">
+        <label for="soles2"><span class="radio-button"></span>Soles</label>
+        <input type="radio" name="moneda2" value="euros" id="euros2">
+        <label for="euros2"><span class="radio-button"></span>Euros</label>
+        <h3>Ingrese monto:</h3>
+        <input type="text" class="text" id="dinero">
+        <br/> <button type="button" onclick="cambio()">Cotizar</button>
+    </div>    
+</body>
+</html>
